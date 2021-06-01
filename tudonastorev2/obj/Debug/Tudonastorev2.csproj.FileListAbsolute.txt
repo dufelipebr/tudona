@@ -1,0 +1,6 @@
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\bin\Tudonastorev2.dll.config
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\bin\Tudonastorev2.dll
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\bin\Tudonastorev2.pdb
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\obj\Debug\Tudonastorev2.dll
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\obj\Debug\Tudonastorev2.pdb
+\\CHRB1015.corp.gwpnet.com\homes\v\s22dv2\Documents\_pessoal\TudonaStorev2\Tudonastorev2\Tudonastorev2\obj\Debug\Tudonastorev2.csprojResolveAssemblyReference.cache
