@@ -128,6 +128,7 @@
     <Content Include="img\slide-two.jpg" />
     <Content Include="img\TudoNaturalParaVoceLogo2.gif" />
     <Content Include="img\winter-coffee-morning.jpeg" />
+    <Content Include="TesteEmail.aspx" />
     <Content Include="___Default.aspx" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TesteEmail.aspx.cs">
+      <DependentUpon>TesteEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TesteEmail.aspx.designer.cs">
+      <DependentUpon>TesteEmail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

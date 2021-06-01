@@ -10,14 +10,9 @@ using System.Configuration;
 
 namespace Tudonastorev2
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class TesteEmail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
         {
             string mailFrom = ConfigurationManager.AppSettings["MailFrom"];
             string mailName = ConfigurationManager.AppSettings["DisplayName"];
@@ -27,33 +22,46 @@ namespace Tudonastorev2
             string credentialPWD = ConfigurationManager.AppSettings["CredentialPWD"];
             string mailTo = ConfigurationManager.AppSettings["MailTo"];
 
+            
 
-            SmtpClient client = new SmtpClient(smtpServer);
-            client.Credentials = new NetworkCredential(credentialMail, credentialPWD);
-            MailAddress from = new MailAddress(mailFrom, mailName);
+            SmtpClient client = new SmtpClient();
+            //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //client.UseDefaultCredentials = false;
+            //client.EnableSsl = true;
+            //client.Credentials = new NetworkCredential(credentialMail, credentialPWD);
+            //client.Port = Int32.Parse(smtpPort);
+            MailAddress from = new MailAddress(mailFrom);
             MailAddress to = new MailAddress(mailTo);
             using (MailMessage message = new MailMessage(from, to))
-            { 
+            {
                 message.Body = "Esse formulario foi preenchido via website.<br><br> ";
                 // Include some non-ASCII characters in body and subject.
                 //string someArrows = new string(new char[] { '\u2190', '\u2191', '\u2192', '\u2193' });
-                message.Body += Environment.NewLine +"Nome:" + name.Value;
-                message.Body += Environment.NewLine + "Email:" + email.Value;
-                message.Body += Environment.NewLine + "Mensagem:" + mensagem.Value;
+                message.Body += Environment.NewLine + "Nome:teste";
+                message.Body += Environment.NewLine + "Email:teste@mail.com";
+                message.Body += Environment.NewLine + "Mensagem:testinggggggg ggg gggg";
                 message.BodyEncoding = System.Text.Encoding.UTF8;
                 message.Subject = "Envio formulario Website";
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
-                Label1.Text = "Email enviado com sucesso";
                 try
                 {
                     client.Send(message);
                 }
                 catch (Exception ex)
                 {
-                    Label1.Text = "Um erro ocorreu ao enviar o email, por favor procure o administrador:" + ex.Message;
+                    Trace.Write(client.Host);
+                    Trace.Write("mailname:" + mailName);
+                    Trace.Write("client.Host:" + client.Host);
+                    Trace.Write("client.Port:" + client.Port);
+                    Trace.Write("client.Credentials:" + client.Credentials);
+                    Trace.Write("credentialMail:" + credentialMail);
+                    Trace.Write("credentialPWD:" + credentialPWD);
+                    Trace.Write("mailTo:" + mailTo);
+                    throw ex;
                 }
-            }
 
+                Response.Write("enviado com sucesso");
+            }
         }
     }
 }
