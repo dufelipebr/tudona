@@ -1,1 +1,6 @@
-teste
+GIT 
+
+git status (checar arquivos)
+git add (adicionar arquivos)
+git commit -m [versão adicionada]
+git push (publicar versão)
