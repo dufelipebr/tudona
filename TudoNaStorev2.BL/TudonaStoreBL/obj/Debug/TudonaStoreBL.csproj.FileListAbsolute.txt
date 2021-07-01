@@ -1,0 +1,9 @@
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\obj\Debug\TudonaStoreBL.csprojResolveAssemblyReference.cache
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudonaStoreBL.dll
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudonaStoreBL.pdb
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\obj\Debug\TudonaStoreBL.dll
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\obj\Debug\TudonaStoreBL.pdb
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudoNaStoreDAO.dll
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudoNaStoreEntity.dll
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudoNaStoreEntity.pdb
+C:\GIT\Tudonastorev2\tudona\Tudonastorev2.BL\TudonaStoreBL\bin\Debug\TudoNaStoreDAO.pdb
