@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "adminServer", ".", "{F6F6480D-5717-4434-990B-0193137C27AC}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{1365ea50-e9ea-4f86-9cf5-6a7f8ccfe80c}|TudonaStoreBL.dll;{5367baf8-a16d-424c-9aea-f482f977da82}|TudoNaStoreEntity.dll;{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}|TudoNaStoreDAO.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50758"
 		Debug.AspNetCompiler.PhysicalPath = "..\adminServer\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50758\"
@@ -25,13 +26,34 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "adminServer", ".", "{F6F648
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TudonaStoreBL", "..\..\Tudonastorev2.BL\TudonaStoreBL\TudonaStoreBL.csproj", "{1365EA50-E9EA-4F86-9CF5-6A7F8CCFE80C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TudoNaStoreDAO", "..\TudoNaStoreDAO\TudoNaStoreDAO.csproj", "{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TudoNaStoreEntity", "TudoNaStoreEntity\TudoNaStoreEntity.csproj", "{5367BAF8-A16D-424C-9AEA-F482F977DA82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F6F6480D-5717-4434-990B-0193137C27AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6F6480D-5717-4434-990B-0193137C27AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F6480D-5717-4434-990B-0193137C27AC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F6480D-5717-4434-990B-0193137C27AC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1365EA50-E9EA-4F86-9CF5-6A7F8CCFE80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1365EA50-E9EA-4F86-9CF5-6A7F8CCFE80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1365EA50-E9EA-4F86-9CF5-6A7F8CCFE80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1365EA50-E9EA-4F86-9CF5-6A7F8CCFE80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675DF5D5-6FE5-4AD6-9F07-AD39A9DC1E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5367BAF8-A16D-424C-9AEA-F482F977DA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5367BAF8-A16D-424C-9AEA-F482F977DA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5367BAF8-A16D-424C-9AEA-F482F977DA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5367BAF8-A16D-424C-9AEA-F482F977DA82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

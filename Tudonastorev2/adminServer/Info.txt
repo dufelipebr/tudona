@@ -1,1 +1,1 @@
-﻿https://dotnet.microsoft.com/apps/aspnet/apis
+﻿https://dotnet.microsoft.com/app.s/aspnet/apis

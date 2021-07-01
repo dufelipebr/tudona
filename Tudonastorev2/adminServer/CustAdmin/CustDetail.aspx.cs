@@ -38,6 +38,11 @@ public partial class CustAdmin_CustDetail : System.Web.UI.Page
         cl.ClientPhoneNumber = phoneNumber.Text;
         cl.ClientRegionID = Int32.Parse(regionID.SelectedValue);
         cl.ClientStatusID = Int32.Parse(statusID.SelectedValue);
+        cl.AddressCom = addresCom.Text;
+        cl.AddressNgh = addressNgh.Text;
+        cl.AddressNum = addressNum.Text;
+        cl.AddressSta = addressState.Text;
+
         lblMessage.Text = "";
 
         try

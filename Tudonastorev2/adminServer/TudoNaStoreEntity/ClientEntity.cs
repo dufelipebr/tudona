@@ -18,7 +18,12 @@ namespace TudoNaStoreEntity
         private string clientContactNumber;
         private string geolocation;
         private string zipcode;
-        private string fullAdress;
+        private string fullAddress;
+        private string addressNum;
+        private string addressCom;
+        private string addressNgh;
+        private string addressSta;
+
 
         public ClientEntity()
         {
@@ -31,7 +36,16 @@ namespace TudoNaStoreEntity
             this.clientContactNumber = "";
             this.geolocation = "";
             this.zipcode = "";
-            this.fullAdress = "";
+            this.fullAddress = "";
+            this.addressNum = "";
+            this.addressCom = "";
+            this.addressNgh = "";
+            this.AddressSta = "";
+        }
+
+        public ClientEntity(string addressCom)
+        {
+            this.AddressCom = addressCom;
         }
 
         public int ClientID
@@ -155,18 +169,72 @@ namespace TudoNaStoreEntity
         {
             get
             {
-                return fullAdress;
+                return fullAddress;
             }
 
             set
             {
-                fullAdress = value;
+                fullAddress = value;
+            }
+        }
+
+        public string AddressNum
+        {
+            get
+            {
+                return addressNum;
+            }
+
+            set
+            {
+                addressNum = value;
+            }
+        }
+
+        public string AddressNgh
+        {
+            get
+            {
+                return addressNgh;
+            }
+
+            set
+            {
+                addressNgh = value;
+            }
+        }
+
+        public string AddressCom
+        {
+            get
+            {
+                return addressCom;
+            }
+
+            set
+            {
+                addressCom = value;
+            }
+        }
+
+        public string AddressSta
+        {
+            get
+            {
+                return addressSta;
+            }
+
+            set
+            {
+                addressSta = value;
             }
         }
 
         public bool Validate()
         {
-            Regex cepRegExp = new Regex(@"[0-9]{5}-[0-9]{3}");
+            Regex addressNumberRegExp = new Regex(@"^[1-9]\d{1,7}$");
+            Regex cepRegExp = new Regex(@"^\d{5}-\d{3}$");
+            Regex telefoneRegExp = new Regex(@"^\([1-9]{2}\)(?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$");
 
             bool isValid = true;
             if (ClientHost.Length <= 0 || ClientHost.Length > 200)
@@ -187,6 +255,7 @@ namespace TudoNaStoreEntity
                 //errors.Insert(0, "Invalid character lenght for Phone Number");
                 //isValid = false;
             }
+
             if (ClientRegionID <= 0)
             {
                 throw new EntityException("Invalid Region ID");
@@ -205,9 +274,21 @@ namespace TudoNaStoreEntity
                 //errors.Insert(0, "Invalid character lenght for Phone Number");
                 //isValid = false;
             }
+            if (this.ClientPhoneNumber != null && !telefoneRegExp.IsMatch(this.ClientPhoneNumber))
+            {
+                throw new EntityException("Invalid Mask for Phone Number. Supported Format: (00)0000-0000");
+                //errors.Insert(0, "Invalid character lenght for Phone Number");
+                //isValid = false;
+            }
             if (ClientContactNumber.Length < 0 || ClientContactNumber.Length > 15)
             {
                 throw new EntityException("Invalid character lenght for Client Contact Number");
+                //errors.Insert(0, "Invalid character lenght for Phone Number");
+                //isValid = false;
+            }
+            if (this.ClientContactNumber != null && !telefoneRegExp.IsMatch(this.ClientContactNumber))
+            {
+                throw new EntityException("Invalid Mask for Contact Number. Supported Format: (00)0000-0000");
                 //errors.Insert(0, "Invalid character lenght for Phone Number");
                 //isValid = false;
             }
@@ -231,8 +312,29 @@ namespace TudoNaStoreEntity
             }
             if (this.Zipcode != null && !cepRegExp.IsMatch(this.Zipcode))
             {
-                throw new EntityException("Invalid Zipcode");
+                throw new EntityException("Invalid Zipcode. Format 00000-000.");
             }
+            if (this.AddressNum == "" )
+            {
+                throw new EntityException("Invalid Address Number. Obrigatory.");
+            }
+            if ((this.AddressNum != null && !addressNumberRegExp.IsMatch(this.AddressNum)))
+            {
+                throw new EntityException("Invalid Address Number Format. Expected 7 digits number.");
+            }
+            if (this.AddressNgh.Trim() == "" || this.AddressNgh.Length > 30)
+            {
+                throw new EntityException("Invalid Address Neighborhood. Obrigatory (MaxSize = 30).");
+            }
+            if (this.AddressCom.Length > 10)
+            {
+                throw new EntityException("Invalid Address Complement. MaxSize = 10.");
+            }
+            if (this.AddressSta.Trim() == "" || this.AddressSta.Length > 20)
+            {
+                throw new EntityException("Invalid Address State. MaxSize = 20.");
+            }
+
             return isValid;
 
         }

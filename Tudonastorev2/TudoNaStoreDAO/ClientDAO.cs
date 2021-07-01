@@ -8,22 +8,28 @@ using System.Data.SqlClient;
 
 namespace TudoNaStoreDAO
 {
-    class ClientDAO
+    public static class ClientDAO
     {
         public static void InsertClient(ClientEntity obj)
         {
-            SqlCommand sql = new SqlCommand("Insert into Client (clientID, clientHost, clientContactName, ClientPhoneNumber, clientRegion, clientStatus) values (@clientID, @clientHost, @clientContactName, @ClientPhoneNumber, @clientRegion, @clientStatus)");
-            sql.Parameters.Add("@clientHost");
-            sql.Parameters.Add("@clientContactName");
-            sql.Parameters.Add("@ClientPhoneNumber");
-            sql.Parameters.Add("@clientRegion");
-            sql.Parameters.Add("@clientStatus");
+            SqlCommand sql = new SqlCommand(@"INSERT INTO [dbo].[Client] ([clientHost] ,[clientContactName] ,[clientContactNumber] ,[clientPhoneNumber]  ,[clientAddress] ,[clientAddressNum] ,[clientAddressCom] ,[clientAddressNgh] ,[clientAddressSta] ,[clientZipCode] ,[clientGEO] ,[clientRegionID] ,[clientStatusID]) VALUES (@clientHost,  @clientContactName,  @clientContactNumber, @clientPhoneNumber, @clientAddress,  @clientAddressNum, @clientAddressCom, @clientAddressNgh, @clientAddressSta, @clientZipCode, @clientGEO, @clientRegionID, @clientStatusID)");
 
-            sql.Parameters["@clientHost"].Value = obj.ClientHost;
-            sql.Parameters["@clientContactName"].Value = obj.ClientContactName;
-            sql.Parameters["@ClientPhoneNumber"].Value = obj.ClientPhoneNumber;
-            sql.Parameters["@clientRegion"].Value = obj.ClientRegionID;
-            sql.Parameters["@clientStatus"].Value = obj.ClientStatusID;
+            sql.Parameters.Add(new SqlParameter("@clientHost", obj.ClientHost));
+            sql.Parameters.Add(new SqlParameter("@clientContactName", obj.ClientContactName));
+            sql.Parameters.Add(new SqlParameter("@clientContactNumber", obj.ClientContactNumber));
+            sql.Parameters.Add(new SqlParameter("@clientPhoneNumber", obj.ClientPhoneNumber));
+            sql.Parameters.Add(new SqlParameter("@clientAddress", obj.FullAdress));
+            sql.Parameters.Add(new SqlParameter("@clientAddressNum", obj.AddressNum));
+
+            sql.Parameters.Add(new SqlParameter("@clientAddressCom", obj.AddressCom));
+            sql.Parameters.Add(new SqlParameter("@clientAddressNgh", obj.AddressNgh));
+            sql.Parameters.Add(new SqlParameter("@clientAddressSta", obj.AddressSta));
+            sql.Parameters.Add(new SqlParameter("@clientZipCode", obj.Zipcode));
+            sql.Parameters.Add(new SqlParameter("@clientGEO", obj.Geolocation));
+            //sql.Parameters.Add("@clientLogin");
+            //sql.Parameters.Add("@clientPWD");
+            sql.Parameters.Add(new SqlParameter("@clientRegionID", obj.ClientRegionID));
+            sql.Parameters.Add(new SqlParameter("@clientStatusID", obj.ClientStatusID));
 
             BaseConn.ExecuteNonQuery(sql);
         }
