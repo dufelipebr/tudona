@@ -45,13 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TudoNaStoreDAO\TudoNaStoreDAO.csproj">
+      <Project>{675df5d5-6fe5-4ad6-9f07-ad39a9dc1e12}</Project>
+      <Name>TudoNaStoreDAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Tudonastorev2\adminServer\TudoNaStoreEntity\TudoNaStoreEntity.csproj">
       <Project>{5367baf8-a16d-424c-9aea-f482f977da82}</Project>
       <Name>TudoNaStoreEntity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Tudonastorev2\TudoNaStoreDAO\TudoNaStoreDAO.csproj">
-      <Project>{675df5d5-6fe5-4ad6-9f07-ad39a9dc1e12}</Project>
-      <Name>TudoNaStoreDAO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

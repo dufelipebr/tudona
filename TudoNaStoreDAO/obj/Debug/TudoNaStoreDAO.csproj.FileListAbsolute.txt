@@ -5,3 +5,10 @@ C:\GIT\Tudonastorev2\tudona\Tudonastorev2\TudoNaStoreDAO\obj\Debug\TudoNaStoreDA
 C:\GIT\Tudonastorev2\tudona\Tudonastorev2\TudoNaStoreDAO\obj\Debug\TudoNaStoreDAO.pdb
 C:\GIT\Tudonastorev2\tudona\Tudonastorev2\TudoNaStoreDAO\bin\Debug\TudoNaStoreEntity.dll
 C:\GIT\Tudonastorev2\tudona\Tudonastorev2\TudoNaStoreDAO\bin\Debug\TudoNaStoreEntity.pdb
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\obj\Debug\TudoNaStoreDAO.csprojResolveAssemblyReference.cache
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\obj\Debug\TudoNaStoreDAO.dll
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\obj\Debug\TudoNaStoreDAO.pdb
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\bin\Debug\TudoNaStoreDAO.dll
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\bin\Debug\TudoNaStoreDAO.pdb
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\bin\Debug\TudoNaStoreEntity.dll
+C:\GIT\Tudonastorev2\tudona\TudoNaStoreDAO\bin\Debug\TudoNaStoreEntity.pdb

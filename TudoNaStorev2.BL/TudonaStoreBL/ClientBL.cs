@@ -11,9 +11,22 @@ namespace TudonaStoreBL
 {
     public class ClientBL
     {
-        public static void InsertClient(ClientEntity obj)
+        public static void SaveClient(ClientEntity obj)
         {
-            ClientDAO.InsertClient(obj);
+            if (obj.ClientID != 0)
+                ClientDAO.UpdateClient(obj);
+            else
+                ClientDAO.InsertClient(obj);
+        }
+
+        public static List<ClientEntity> GetClientList()
+        {
+            return ClientDAO.GetClientList();
+        }
+
+        public static ClientEntity GetClientListbyID(int clientID)
+        {
+            return ClientDAO.GetClient(clientID);
         }
     }
 }

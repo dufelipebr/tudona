@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\adminServer\TudoNaStoreEntity\TudoNaStoreEntity.csproj">
+    <ProjectReference Include="..\Tudonastorev2\adminServer\TudoNaStoreEntity\TudoNaStoreEntity.csproj">
       <Project>{5367baf8-a16d-424c-9aea-f482f977da82}</Project>
       <Name>TudoNaStoreEntity</Name>
     </ProjectReference>

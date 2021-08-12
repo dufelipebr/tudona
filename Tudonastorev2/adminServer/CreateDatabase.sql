@@ -23,10 +23,15 @@ create table dbo.Client
 	clientAddressSta varchar(20) not null, 
 	clientZipCode varchar(100) not null, 
 	clientGEO varchar(500) not null, 
-	clientLogin varchar(20) not null, 
-	clientPWD varchar(300) not null, 
 	clientRegionID int not null, 
 	clientStatusID int not null,
+	clientType varchar(1) not null, 
+	clientSocialNumber varchar(20) not null, 
+	clientBusinessFullName varchar(70) not null,
+	FacebookID varchar(150),  
+	InstagramID varchar(150), 
+	Email varchar(50), 
+	WhatsApp varchar(20), 
 	PRIMARY KEY(clientID)
 )
 

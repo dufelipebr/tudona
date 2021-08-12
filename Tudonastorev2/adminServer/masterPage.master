@@ -4,10 +4,63 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Virtual IT Lab</title>
-    <link rel="stylesheet" href="css/system.css">
-    <asp:ContentPlaceHolder id="head" runat="server">
-    </asp:ContentPlaceHolder>
+<title>Virtual IT Lab</title>
+<style>
+table input[type="text" i] {
+    font-size: 8px;
+    width:200px;
+}
+
+body{
+	font-family: Verdana;
+    font-size: 8px;
+}
+li{
+	list-style: none;
+}cp
+a:hover, a:visited, a{
+	text-decoration: none;
+}
+h1, h2{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.DataTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.DataTable td, .DataTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.DataTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.DataTable tr:hover {background-color: #ddd;}
+
+.DataTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+</style>
+<asp:ContentPlaceHolder id="head" runat="server">
+</asp:ContentPlaceHolder>
 </head>
 <body>
    

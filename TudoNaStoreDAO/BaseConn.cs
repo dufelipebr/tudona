@@ -41,5 +41,17 @@ namespace TudoNaStoreDAO
                 SqlConn.Close();
             }
         }
+
+        public static DataTable ExecuteQuery(SqlCommand sql)
+        {
+            using (SqlConnection SqlConn = new SqlConnection(ConnectionString))
+            {
+                sql.Connection = SqlConn;
+                SqlDataAdapter da = new SqlDataAdapter(sql);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                return ds.Tables[0];
+            }
+        }
     }
 }

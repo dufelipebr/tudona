@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace TudoNaStoreEntity
 {
+    public enum ClientType { F, J};
     public class ClientEntity
     {
         private int clientID;
@@ -23,6 +24,14 @@ namespace TudoNaStoreEntity
         private string addressCom;
         private string addressNgh;
         private string addressSta;
+        private ClientType typeCli;  // F or J
+        private string customerFullName;
+        private string socialNumber;
+        private string facebookID;
+        private string instagramID;
+        private string email;
+        private string whatsApp;
+
 
 
         public ClientEntity()
@@ -230,13 +239,116 @@ namespace TudoNaStoreEntity
             }
         }
 
+        public ClientType TypeCli
+        {
+            get
+            {
+                return typeCli;
+            }
+
+            set
+            {
+                typeCli = value;
+            }
+        }
+
+        public string CustomerFullName
+        {
+            get
+            {
+                return customerFullName;
+            }
+
+            set
+            {
+                customerFullName = value;
+            }
+        }
+
+        public string SocialNumber
+        {
+            get
+            {
+                return socialNumber;
+            }
+
+            set
+            {
+                socialNumber = value;
+            }
+        }
+
+        public string InstagramID
+        {
+            get
+            {
+                return instagramID;
+            }
+
+            set
+            {
+                instagramID = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
+        }
+
+        public string FacebookID
+        {
+            get
+            {
+                return facebookID;
+            }
+
+            set
+            {
+                facebookID = value;
+            }
+        }
+
+        public string WhatsApp
+        {
+            get
+            {
+                return whatsApp;
+            }
+
+            set
+            {
+                whatsApp = value;
+            }
+        }
+
         public bool Validate()
         {
             Regex addressNumberRegExp = new Regex(@"^[1-9]\d{1,7}$");
             Regex cepRegExp = new Regex(@"^\d{5}-\d{3}$");
             Regex telefoneRegExp = new Regex(@"^\([1-9]{2}\)(?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$");
+            Regex emailRegExp = new Regex(@"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])");
 
             bool isValid = true;
+
+            if (CustomerFullName.Trim() == "")
+            {
+                throw new EntityException("Invalid Customer FullName. (empty)");
+            }
+
+            if (SocialNumber.Trim() == "")
+            {
+                throw new EntityException("Invalid Customer Social Number. (empty)");
+            }
+
             if (ClientHost.Length <= 0 || ClientHost.Length > 200)
             {
                 throw new EntityException("Invalid character lenght for Client Host");
@@ -334,6 +446,39 @@ namespace TudoNaStoreEntity
             {
                 throw new EntityException("Invalid Address State. MaxSize = 20.");
             }
+            if (this.TypeCli == null)
+            {
+                throw new EntityException("Invalid Type Customer. Empty.");
+            }
+            if (this.CustomerFullName.Trim() == "")
+            {
+                throw new EntityException("Invalid Customer Full Name. Empty.");
+            }
+            if (this.SocialNumber.Trim() == "")
+            {
+                throw new EntityException("Invalid Social Number. Empty.");
+            }
+            if (this.WhatsApp != null && this.WhatsApp.Length > 20)
+            {
+                throw new EntityException("WhatsApp Invalid. (MaxLenght 20).");
+            }
+            if (this.FacebookID != null && this.FacebookID.Length > 150)
+            {
+                throw new EntityException("FacebookID Invalid. (MaxLenght 150).");
+            }
+            if (this.Email != null && this.Email.Length > 50)
+            {
+                throw new EntityException("Email Invalid. (MaxLenght 50).");
+            }
+            if (this.InstagramID != null && this.InstagramID.Length > 150)
+            {
+                throw new EntityException("InstagramID Invalid. (MaxLenght 150).");
+            }
+            if(this.Email != null && emailRegExp.IsMatch(this.Email))
+            {
+                throw new EntityException("Email Invalid. (Regex expression invalid).");
+            }
+            
 
             return isValid;
 

@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Tudonastorev2.dll">
-      <publishTime>05/31/2021 12:01:53</publishTime>
+      <publishTime>06/01/2021 17:59:28</publishTime>
     </File>
     <File Include="css/bootstrap.min.css">
       <publishTime>05/28/2021 16:54:08</publishTime>
@@ -204,8 +204,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Site1.Master">
       <publishTime>05/28/2021 17:04:38</publishTime>
     </File>
+    <File Include="TesteEmail.aspx">
+      <publishTime>06/01/2021 11:48:49</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>05/31/2021 12:01:55</publishTime>
+      <publishTime>06/01/2021 17:59:28</publishTime>
     </File>
     <File Include="___Default.aspx">
       <publishTime>05/28/2021 16:55:23</publishTime>
