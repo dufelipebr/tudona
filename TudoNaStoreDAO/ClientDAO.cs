@@ -13,11 +13,11 @@ namespace TudoNaStoreDAO
     {
         public static void InsertClient(ClientEntity obj)
         {
-            SqlCommand sql = new SqlCommand(@"INSERT INTO [dbo].[Client] ([clientHost] ,[clientContactName] ,[clientContactNumber] ,
+            SqlCommand sql = new SqlCommand(@"INSERT INTO [dbo].[Client] (hashControl, CreationDate, ModifiedDate, [clientHost] ,[clientContactName] ,[clientContactNumber] ,
             [clientPhoneNumber]  ,[clientAddress] ,[clientAddressNum] ,[clientAddressCom] ,[clientAddressNgh] ,[clientAddressSta] ,
             [clientZipCode] ,[clientGEO] ,[clientRegionID] ,[clientStatusID], clientType, clientSocialNumber, clientBusinessFullName
             ,FacebookID,InstagramID,Email,WhatsApp) 
-            VALUES (@clientHost,  @clientContactName,  @clientContactNumber, @clientPhoneNumber, @clientAddress,  @clientAddressNum, 
+            VALUES (newId(), getdate(), getdate(), @clientHost,  @clientContactName,  @clientContactNumber, @clientPhoneNumber, @clientAddress,  @clientAddressNum, 
             @clientAddressCom, @clientAddressNgh, @clientAddressSta, @clientZipCode, @clientGEO, @clientRegionID, 
             @clientStatusID, @clientType, @clientSocialNumber, @clientBusinessFullName , @FacebookID,  @InstagramID, @Email , @WhatsApp)");
 
@@ -72,7 +72,8 @@ namespace TudoNaStoreDAO
             FacebookID = @FacebookID,
             InstagramID = @InstagramID,
             Email = @Email,
-            WhatsApp  = @WhatsApp
+            WhatsApp  = @WhatsApp,
+            ModifiedDate = getdate()
             where ClientID = @ClientID ");
 
             sql.Parameters.Add(new SqlParameter("@clientID", obj.ClientID));
@@ -111,30 +112,7 @@ namespace TudoNaStoreDAO
             DataTable dt = BaseConn.ExecuteQuery(sql);
             foreach(DataRow rd in dt.Rows)
             {
-                ClientEntity et = new ClientEntity();
-                et.ClientID = Convert.ToInt32(rd["clientID"]);
-                et.ClientHost = rd["clientHost"].ToString();
-                et.ClientContactName = rd["clientContactName"].ToString();
-                et.ClientContactNumber = rd["clientContactNumber"].ToString();
-                et.ClientPhoneNumber = rd["clientPhoneNumber"].ToString();
-                et.FullAdress = rd["clientAddress"].ToString();
-                et.AddressNum = rd["clientAddressNum"].ToString();
-                et.AddressCom = rd["clientAddressCom"].ToString();
-                et.AddressNgh = rd["clientAddressNgh"].ToString();
-                et.AddressSta = rd["clientAddressSta"].ToString();
-                et.Zipcode = rd["clientZipCode"].ToString();
-                et.Geolocation = rd["clientGEO"].ToString();
-                et.ClientRegionID = Convert.ToInt32(rd["clientRegionID"]);
-                et.ClientStatusID = Convert.ToInt32(rd["clientStatusID"]);
-                et.TypeCli = (rd["clientType"].ToString() == "F" ?  ClientType.F : ClientType.J);
-                et.SocialNumber = rd["clientSocialNumber"].ToString();
-                et.CustomerFullName = rd["clientBusinessFullName"].ToString();
-                et.WhatsApp = rd["WhatsApp"].ToString();
-                et.InstagramID = rd["InstagramID"].ToString();
-                et.FacebookID = rd["FacebookID"].ToString();
-                et.Email = rd["Email"].ToString();
-
-                lstClient.Add(et);
+                lstClient.Add(FillDt(rd));
             }
             return lstClient;
         }
@@ -146,29 +124,65 @@ namespace TudoNaStoreDAO
             DataTable dt = BaseConn.ExecuteQuery(sql);
             foreach (DataRow rd in dt.Rows)
             {
-                et.ClientID = Convert.ToInt32(rd["clientID"]);
-                et.ClientHost = rd["clientHost"].ToString();
-                et.ClientContactName = rd["clientContactName"].ToString();
-                et.ClientContactNumber = rd["clientContactNumber"].ToString();
-                et.ClientPhoneNumber = rd["clientPhoneNumber"].ToString();
-                et.FullAdress = rd["clientAddress"].ToString();
-                et.AddressNum = rd["clientAddressNum"].ToString();
-                et.AddressCom = rd["clientAddressCom"].ToString();
-                et.AddressNgh = rd["clientAddressNgh"].ToString();
-                et.AddressSta = rd["clientAddressSta"].ToString();
-                et.Zipcode = rd["clientZipCode"].ToString();
-                et.Geolocation = rd["clientGEO"].ToString();
-                et.ClientRegionID = Convert.ToInt32(rd["clientRegionID"]);
-                et.ClientStatusID = Convert.ToInt32(rd["clientStatusID"]);
-                et.TypeCli = (rd["clientType"].ToString() == "F" ? ClientType.F : ClientType.J);
-                et.SocialNumber = rd["clientSocialNumber"].ToString();
-                et.CustomerFullName = rd["clientBusinessFullName"].ToString();
-                et.WhatsApp = rd["WhatsApp"].ToString();
-                et.InstagramID = rd["InstagramID"].ToString();
-                et.FacebookID = rd["FacebookID"].ToString();
-                et.Email = rd["Email"].ToString();
+                et = FillDt(rd);
 
             }
+            return et;
+        }
+
+        public static ClientEntity GetClient(string hash)
+        {
+            ClientEntity et = new ClientEntity();
+            SqlCommand sql = new SqlCommand("Select * from [dbo].[Client] where HashControl = @HashControl");
+            sql.Parameters.Add(new SqlParameter("@HashControl", hash));
+            DataTable dt = BaseConn.ExecuteQuery(sql);
+            foreach (DataRow rd in dt.Rows)
+            {
+                et = FillDt(rd);
+
+            }
+            return et;
+        }
+
+        public static ClientEntity GetClient(string hash, string host)
+        {
+            ClientEntity et = null;
+            SqlCommand sql = new SqlCommand("Select * from [dbo].[Client] where clientHost = '" + host + "'");
+            DataTable dt = BaseConn.ExecuteQuery(sql);
+            foreach (DataRow rd in dt.Rows)
+            {
+                et = FillDt(rd);
+
+            }
+            return et;
+        }
+
+        private static ClientEntity FillDt(DataRow rd)
+        {
+            ClientEntity et = new ClientEntity();
+            et.ClientID = Convert.ToInt32(rd["clientID"]);
+            et.ClientHost = rd["clientHost"].ToString();
+            et.ClientContactName = rd["clientContactName"].ToString();
+            et.ClientContactNumber = rd["clientContactNumber"].ToString();
+            et.ClientPhoneNumber = rd["clientPhoneNumber"].ToString();
+            et.FullAdress = rd["clientAddress"].ToString();
+            et.AddressNum = rd["clientAddressNum"].ToString();
+            et.AddressCom = rd["clientAddressCom"].ToString();
+            et.AddressNgh = rd["clientAddressNgh"].ToString();
+            et.AddressSta = rd["clientAddressSta"].ToString();
+            et.Zipcode = rd["clientZipCode"].ToString();
+            et.Geolocation = rd["clientGEO"].ToString();
+            et.ClientRegionID = Convert.ToInt32(rd["clientRegionID"]);
+            et.ClientStatusID = Convert.ToInt32(rd["clientStatusID"]);
+            et.TypeCli = (rd["clientType"].ToString() == "F" ? ClientType.F : ClientType.J);
+            et.SocialNumber = rd["clientSocialNumber"].ToString();
+            et.CustomerFullName = rd["clientBusinessFullName"].ToString();
+            et.WhatsApp = rd["WhatsApp"].ToString();
+            et.InstagramID = rd["InstagramID"].ToString();
+            et.FacebookID = rd["FacebookID"].ToString();
+            et.Email = rd["Email"].ToString();
+            et.HashControl = rd["hashControl"].ToString();
+
             return et;
         }
     }

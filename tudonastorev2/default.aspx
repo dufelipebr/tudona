@@ -301,10 +301,10 @@ Entre em contato conosco, através de seu canal favorito.</br></h4>
 									<h3>Informação para contato</h3>
 									<div class="info-detail">
 										<ul><li><i class="fa fa-calendar"></i><span>Segunda - Sábado:</span> 9:00 as 18:00 PM</li></ul>
-										<ul><li><i class="fa fa-map-marker"></i><span>Endereço:</span> Rua Antonio Francisco Lisboa 1660, Hortolândia - SP</li></ul>
-										<ul><li><i class="fa fa-phone"></i><span>Telefone:</span> (19) 3909.5645</li></ul>
-										<ul><li><i class="fa fa-fax"></i><span>Whatsapp:</span> (11) 94633.9200 </li></ul>
-										<ul><li><i class="fa fa-envelope"></i><span>Email:</span> contato@tudonaturalparavoce.com.br</li></ul>
+										<ul><li><i class="fa fa-map-marker"></i><span>Endereço:</span> <div id="dEndereco" runat="server" /></li></ul>
+										<ul><li><i class="fa fa-phone"></i><span>Telefone:</span> <span id="dPhone" runat="server" /></li></ul>
+										<ul><li><i class="fa fa-fax"></i><span>Whatsapp:</span> <span id="dZap" runat="server" /></li></ul>
+										<ul><li><i class="fa fa-envelope"></i><span>Email:</span> <span id="dEmail" runat="server" /></li></ul>
 									</div>
 								</div>
 

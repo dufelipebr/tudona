@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
 using System.Configuration;
+using TudoNaStoreEntity;
+
 
 namespace Tudonastorev2
 {
@@ -14,7 +16,29 @@ namespace Tudonastorev2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string hostName = (ConfigurationManager.AppSettings["HostName"] == null ? Request.Url.ToString() : ConfigurationManager.AppSettings["HostName"]);
+                string clientId = ConfigurationManager.AppSettings["ClientID"];
+                mainVITLabService.ClientServiceInterfaceClient client = new mainVITLabService.ClientServiceInterfaceClient();
+                mainVITLabService.ClientEntity c = client.GetClient(clientId, hostName);
 
+                if (c != null)
+                {
+                    //Response.Write(c.HashControl);
+                    dPhone.InnerText = c.ClientPhoneNumber;
+                    dZap.InnerText = c.WhatsApp;
+                    dEndereco.InnerText = string.Format("{0} - {1} - {2}, {3}, {4}.", c.FullAdress, c.AddressNum, c.AddressCom, c.AddressNgh, c.AddressSta);
+                    dEmail.InnerText = c.Email;
+                }
+
+                // Always close the client.
+                client.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

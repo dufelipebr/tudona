@@ -11,6 +11,7 @@ namespace TudonaStoreBL
 {
     public class ClientBL
     {
+
         public static void SaveClient(ClientEntity obj)
         {
             if (obj.ClientID != 0)
@@ -24,9 +25,18 @@ namespace TudonaStoreBL
             return ClientDAO.GetClientList();
         }
 
-        public static ClientEntity GetClientListbyID(int clientID)
+        public static ClientEntity GetClient(string hash)
         {
-            return ClientDAO.GetClient(clientID);
+            return ClientDAO.GetClient(hash);
+        }
+
+        //public static ClientEntity GetClientListbyID(int clientID)
+        //{
+        //    return ClientDAO.GetClient(clientID);
+        //}
+        public static ClientEntity GetClientListbyID(string hash, string host)
+        {
+            return ClientDAO.GetClient(hash, host);
         }
     }
 }

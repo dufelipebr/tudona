@@ -1,5 +1,0 @@
-C:\GIT\Tudonastorev2\tudona\Tudonastorev2\adminServer\TudoNaStoreEntity\bin\Debug\TudoNaStoreEntity.dll
-C:\GIT\Tudonastorev2\tudona\Tudonastorev2\adminServer\TudoNaStoreEntity\bin\Debug\TudoNaStoreEntity.pdb
-C:\GIT\Tudonastorev2\tudona\Tudonastorev2\adminServer\TudoNaStoreEntity\obj\Debug\TudoNaStoreEntity.dll
-C:\GIT\Tudonastorev2\tudona\Tudonastorev2\adminServer\TudoNaStoreEntity\obj\Debug\TudoNaStoreEntity.pdb
-C:\GIT\Tudonastorev2\tudona\Tudonastorev2\adminServer\TudoNaStoreEntity\obj\Debug\TudoNaStoreEntity.csprojResolveAssemblyReference.cache

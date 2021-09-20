@@ -41,12 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseConn.cs" />
+    <Compile Include="OurProductDAO.cs" />
     <Compile Include="ClientDAO.cs" />
     <Compile Include="GenericDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tudonastorev2\adminServer\TudoNaStoreEntity\TudoNaStoreEntity.csproj">
+    <ProjectReference Include="..\TudoNaStoreEntity\TudoNaStoreEntity.csproj">
       <Project>{5367baf8-a16d-424c-9aea-f482f977da82}</Project>
       <Name>TudoNaStoreEntity</Name>
     </ProjectReference>

@@ -43,6 +43,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -59,6 +61,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TudoNaStoreEntity">
+      <HintPath>..\TudoNaStoreEntity\bin\Debug\TudoNaStoreEntity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -69,8 +74,34 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Service References\mainVITLabService\ClientService.wsdl" />
+    <None Include="Service References\mainVITLabService\item.disco" />
+    <None Include="Service References\mainVITLabService\configuration91.svcinfo" />
+    <None Include="Service References\mainVITLabService\configuration.svcinfo" />
+    <None Include="Service References\mainVITLabService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Site1.Master" />
     <None Include="Properties\PublishProfiles\Tudona.pubxml" />
+    <None Include="Service References\mainVITLabService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\mainVITLabService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\mainVITLabService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\mainVITLabService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\mainVITLabService\Tudonastorev2.mainVITLabService.ClientEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\mainVITLabService\Tudonastorev2.mainVITLabService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -140,6 +171,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\mainVITLabService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,6 +197,12 @@
     <Compile Include="TesteEmail.aspx.designer.cs">
       <DependentUpon>TesteEmail.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\mainVITLabService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
