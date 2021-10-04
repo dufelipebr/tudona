@@ -3,12 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <asp:SiteMapPath ID="SiteMapPath1" runat="server" SiteMapProvider="Company1SiteMap" ForeColor="Yellow" ParentLevelsDisplayed="3" ToolTip="teste" PathSeparator=" &gt;">
-        <PathSeparatorStyle ForeColor="Black" />
-    </asp:SiteMapPath><br /><br />
-    <hr />
-    Create Client
-    <br />
     <asp:Panel ID="Panel1" runat="server" GroupingText="Basic">
         <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
         <br />

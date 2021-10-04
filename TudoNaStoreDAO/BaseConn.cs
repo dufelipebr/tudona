@@ -53,5 +53,21 @@ namespace TudoNaStoreDAO
                 return ds.Tables[0];
             }
         }
+
+        public static int ExecuteScalar(SqlCommand sql)
+        {
+            int outIntResult = 0; 
+            using (SqlConnection SqlConn = new SqlConnection(ConnectionString))
+            {
+                SqlConn.Open();
+                sql.Connection = SqlConn;
+                object o = sql.ExecuteScalar();
+                bool isnull = (typeof(DBNull) == o.GetType());
+                outIntResult = (o==null || isnull ? 0 : Convert.ToInt32(o));
+                SqlConn.Close();
+            }
+
+            return outIntResult;
+        }
     }
 }

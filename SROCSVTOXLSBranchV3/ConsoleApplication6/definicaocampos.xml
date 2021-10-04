@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExcelMapping>
+ <!-- Operação Sinistros Template -->
+  <ExcelDefinition>
+    <ExcelGroupID>03.Sinistro</ExcelGroupID>
+    <ExcelResultFileName>Operac_sinistrov2</ExcelResultFileName>
+    <CSVDefinitions>
+       <CSVDefinition>
+        <CSVName>sin</CSVName>
+        <TemplateID>03.Sinistro</TemplateID>
+        <CSVFileName>sin.csv</CSVFileName>
+        <Order>1</Order>
+        <Datatypes>
+          <eDataType>String</eDataType><!--sistema_origem-->																	
+          <eDataType>Number</eDataType><!--nr_emp-->
+          <eDataType>String</eDataType><!--id_trans-->
+          <eDataType>String</eDataType><!--tp_oper-->
+          <eDataType>String</eDataType><!--cd_susep-->
+          <eDataType>String</eDataType><!--nr_sinistro-->
+          <eDataType>String</eDataType><!--id_trans_apolice-->
+          <eDataType>DateTime</eDataType><!--dt_ocorrencia-->
+          <eDataType>DateTime</eDataType><!--dt_aviso-->
+          <eDataType>DateTime</eDataType><!--dt_registro-->
+          <eDataType>String</eDataType><!--endereco_ocorrencia-->
+          <eDataType>String</eDataType><!--uf_ocorrencia-->
+          <eDataType>String</eDataType><!--cep_ocorrencia-->
+          <eDataType>String</eDataType><!--pais_ocorrencia-->
+          <eDataType>String</eDataType><!--st_sinistro-->
+          <eDataType>String</eDataType><!--just_sinistro-->
+          <eDataType>String</eDataType><!--just_descr-->
+          <eDataType>DateTime</eDataType><!--dt_doc_entrega-->
+        </Datatypes>
+         <Coldefs>
+            <ExcelColumnDef ExcelColumnName="sistema_origem" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="nr_emp" ExcelColumnType="Number"/> 
+            <ExcelColumnDef ExcelColumnName="id_trans" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="tp_oper" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="cd_susep" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="nr_sinistro" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="id_trans_apolice" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="dt_ocorrencia" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="dt_aviso" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="dt_registro" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="endereco_ocorrencia" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="uf_ocorrencia" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="cep_ocorrencia" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="pais_ocorrencia" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="st_sinistro" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="just_sinistro" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="just_descr" ExcelColumnType="String"/> 
+            <ExcelColumnDef ExcelColumnName="dt_doc_entrega" ExcelColumnType="String"/> 
+         </Coldefs>
+      </CSVDefinition>
+    </CSVDefinitions>
+  </ExcelDefinition>
+ </ExcelMapping>
+
+

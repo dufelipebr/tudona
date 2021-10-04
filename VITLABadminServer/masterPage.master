@@ -60,6 +60,7 @@ h1, h2{
 
 </style>
 <asp:ContentPlaceHolder id="head" runat="server">
+
 </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -67,6 +68,27 @@ h1, h2{
     <div>
         <form runat="server">
         
+<asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="Company1SiteMap" />
+<!--<asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1"  Orientation="Horizontal" Ma >
+    <DataBindings>
+        <asp:MenuItemBinding DataMember="SiteMapNode" ImageUrlField="Description" NavigateUrlField="Url" TextField="Title" />
+    </DataBindings>
+</asp:Menu>-->
+<asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" StaticDisplayLevels="2">
+    <Items>
+        <asp:MenuItem NavigateUrl="~/CustAdmin/CustAdmin.aspx" ImageUrl="~/images/client.png" Text="Customer Admin" ></asp:MenuItem>
+    </Items>
+</asp:Menu>
+
+<asp:SiteMapPath ID="SiteMapPath1" runat="server" SiteMapProvider="Company1SiteMap" ForeColor="Yellow" ParentLevelsDisplayed="3" ToolTip="teste" PathSeparator=" &gt;">
+    <PathSeparatorStyle ForeColor="Black" />
+</asp:SiteMapPath>
+<br />
+<br />
+<asp:ImageButton name="btnAdd" runat="server" AlternateText="Add button" ImageUrl="~/images/AddButton.jpg"></asp:ImageButton> Add
+<asp:ImageButton name="btnRem" runat="server" AlternateText="Remove button" ImageUrl="~/images/RemButton.jpg"></asp:ImageButton> Remove
+<hr />
+<br />    
       
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

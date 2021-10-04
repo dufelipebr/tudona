@@ -11,8 +11,6 @@ public partial class CustAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        SiteMapPath1.RenderCurrentNodeAsLink = true;
-
         // Load sample data only once, when the page is first loaded.
         if (!IsPostBack)
         {

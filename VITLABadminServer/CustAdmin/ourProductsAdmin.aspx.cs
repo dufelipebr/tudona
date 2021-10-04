@@ -17,20 +17,45 @@ public partial class CustAdmin_CustDetail : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        refreshDataSource();
+    }
 
-       // if (!IsPostBack & Request.QueryString["edit"] != null)
-       // {
-            List<OurProductEntity> lst = TudonaStoreBL.OurProductBL.GetOurProductList(Request.QueryString["edit"]);
+    private void refreshDataSource()
+    {
+        //if(!Page.IsPostBack)
+        //{
+            IEnumerable<OurProductEntity> lst = TudonaStoreBL.OurProductBL.GetOurProductList(Request.QueryString["edit"]);
             ourProducstList.DataSource = lst;
             ourProducstList.DataBind();
-            //ourProducstList.DataSourceID = 
-       // }
-
+        //}
     }
 
 
     protected void btnBack_Click(object sender, EventArgs e)
     {
+        //Response.Redirect("CustAdmin.aspx");
+    }
+
+    protected void btRemove_Click(object sender, CommandEventArgs e)
+    {
+        //Response.Redirect("CustAdmin.aspx");
+    }
+
+    protected void btUp_Click(object sender, CommandEventArgs e)
+    {
+        string[] args = e.CommandArgument.ToString().Split(',');
+        int ourProductID = Int32.Parse(args[0]);
+        TudonaStoreBL.OurProductBL.SortUp(ourProductID, Request.QueryString["edit"]); // pegar o anterior e aumentar o SortOrder e diminuir o atual. 
+        refreshDataSource();
+        //Response.Redirect("CustAdmin.aspx");
+    }
+
+    protected void btDown_Click(object sender, CommandEventArgs e)
+    {
+        string[] args = e.CommandArgument.ToString().Split(',');
+        int ourProductID = Int32.Parse(args[0]);
+        TudonaStoreBL.OurProductBL.SortDown(ourProductID, Request.QueryString["edit"]); // pegar o anterior e aumentar o SortOrder e diminuir o atual. 
+        refreshDataSource();
         //Response.Redirect("CustAdmin.aspx");
     }
 
@@ -57,14 +82,8 @@ public partial class CustAdmin_CustDetail : System.Web.UI.Page
         {
             op.Validate();
             OurProductBL.SaveOurProduct(op, Request.QueryString["edit"]);
-            boxImage.SaveAs(op.FullFileName);
-            ImageProcessor.Imaging.CropLayer cl = new ImageProcessor.Imaging.CropLayer();
-            cl.CropMode = ImageProcessor.Imaging.CropMode.Pixels;
-            ImageProcessor.Imaging.
-            //rs.Processor.Settings.
-            //boxImage.SaveAs(string.Format("{0}/{1}{2}", attachment_rootfolder, op.Thumb, op.Extension));
-            //op.Validate();
-            //ClientBL.SaveClient(cl);
+            boxImage.SaveAs(op.RelativePath + op.FullFileName);
+            refreshDataSource();
             lblMessage.Text = "Successfull saving";
         }
         catch (EntityException ex)

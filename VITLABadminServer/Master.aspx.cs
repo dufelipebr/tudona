@@ -9,6 +9,6 @@ public partial class Master : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Menu1.StaticDisplayLevels = 2;
+        //Menu1.StaticDisplayLevels = 2;
     }
 }
