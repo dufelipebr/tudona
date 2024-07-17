@@ -1,2 +1,0 @@
-﻿https://dotnet.microsoft.com/app.s/aspnet/apis
-https://github.com/dufelipebr/tudona
